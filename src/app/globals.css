@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ------------------------------------------------------------------------ */
+/*  Design tokens                                                            */
+/* ------------------------------------------------------------------------ */
+:root {
+  --background: #f8f9fc;
+  --foreground: #17151f;
+  --card: #ffffff;
+  --card-foreground: #17151f;
+  --popover: #ffffff;
+  --popover-foreground: #17151f;
+  --muted: #f2f1f6;
+  --muted-foreground: #626070;
+  --subtle: #fafafc;
+  --border: #e5e3ec;
+  --input: #d9d7e3;
+  --primary: #4d277d;
+  --primary-hover: #5c3191;
+  --primary-foreground: #ffffff;
+  --primary-soft: #f1ebf8;
+  --primary-soft-foreground: #4d277d;
+  --secondary: #7043a1;
+  --accent: #e77b31;
+  --accent-hover: #d36c24;
+  --accent-foreground: #ffffff;
+  --accent-soft: #fdf1e8;
+  --accent-soft-foreground: #a24f13;
+  --success: #15803d;
+  --success-soft: #e9f7ee;
+  --warning: #b45309;
+  --warning-soft: #fdf4e3;
+  --danger: #c62828;
+  --danger-soft: #fdecec;
+  --info: #1d4ed8;
+  --info-soft: #eaf0fd;
+  --ring: #7043a1;
+  --sidebar: #ffffff;
+  --sidebar-border: #ebe9f1;
+  /* Validated categorical chart slots (lightness band, chroma floor, CVD separation, 3:1 contrast). */
+  --chart-1: #7043a1;
+  --chart-2: #d4691f;
+  --chart-3: #0a8f7e;
+  --chart-grid: #ecebf1;
+  --chart-axis: #8a8898;
+  --radius: 0.5rem;
+  color-scheme: light;
+}
+
+.dark {
+  --background: #101014;
+  --foreground: #ececf1;
+  --card: #1b1b23;
+  --card-foreground: #ececf1;
+  --popover: #1f1f28;
+  --popover-foreground: #ececf1;
+  --muted: #24242e;
+  --muted-foreground: #9e9cab;
+  --subtle: #17171e;
+  --border: #2d2c38;
+  --input: #3a3946;
+  --primary: #7a4bb4;
+  --primary-hover: #8a5cc4;
+  --primary-foreground: #ffffff;
+  --primary-soft: #2a2138;
+  --primary-soft-foreground: #cbb4ec;
+  --secondary: #9b74cc;
+  --accent: #e77b31;
+  --accent-hover: #f08a42;
+  --accent-foreground: #ffffff;
+  --accent-soft: #3a2618;
+  --accent-soft-foreground: #f4b07f;
+  --success: #4ade80;
+  --success-soft: #16301f;
+  --warning: #fbbf24;
+  --warning-soft: #33280f;
+  --danger: #f87171;
+  --danger-soft: #3a1b1b;
+  --info: #93b4fb;
+  --info-soft: #1b2540;
+  --ring: #9b74cc;
+  --sidebar: #15151b;
+  --sidebar-border: #26252f;
+  --chart-1: #9b74cc;
+  --chart-2: #d9732c;
+  --chart-3: #1fa891;
+  --chart-grid: #2a2934;
+  --chart-axis: #7d7b8a;
+  color-scheme: dark;
+}
+
+@theme inline {
+  /* Readability: every text step is ~1–1.5px larger than Tailwind's defaults (layout spacing unchanged). */
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.25rem;
+  --text-sm: 0.9375rem;
+  --text-sm--line-height: 1.4rem;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.6rem;
+  --text-lg: 1.1875rem;
+  --text-lg--line-height: 1.75rem;
+  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-subtle: var(--subtle);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-soft-foreground: var(--primary-soft-foreground);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-soft-foreground: var(--accent-soft-foreground);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-size: 15.5px;
+    line-height: 1.55;
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 22%, transparent);
+  }
+}
+
+/* Question content: preserve the source line breaks and keep formulas readable. */
+.question-text {
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+.question-text .katex {
+  font-size: 1.06em;
+}
+.question-text .katex-display {
+  margin: 0.5rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2px 0;
+}
+
+/* Diagrams are scanned on white paper; keep a light surface in dark mode for legibility. */
+.question-figure {
+  background: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

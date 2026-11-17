@@ -1,0 +1,8 @@
+{
+  "name": "JEE Main PCM question set (Physics, Chemistry, Mathematics)",
+  "exam": "JEE Main",
+  "provider": "Provided to SGSU as JEE_PCM_Complete.zip",
+  "license": "Not stated in the provided files — confirm usage rights before public use",
+  "attribution": "Original source paper is preserved per question in the originalSource field",
+  "subjects": ["physics", "chemistry", "mathematics"]
+}
